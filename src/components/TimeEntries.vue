@@ -14,7 +14,7 @@
 
     <hr>
 
-    <router-view v-on:timeUpdate="timeUpdate2"></router-view>
+    <router-view v-on:timeUpdate4TE="timeUpdateTE"></router-view>
 
     <div class="time-entries">
       <p v-if="!timeEntries.length"><strong>No time entries yet</strong></p>
@@ -93,24 +93,16 @@ export default {
       if (window.confirm('Are you sure you want to delete this time entry?')) {
         this.timeEntries.splice(index, 1)
         this.$emit('deleteTime', timeEntry) // this.$dispatch('deleteTime', timeEntry) // to the sidebar
+        console.log('EMITTED deleteTime')
       }
     },
-    timeUpdate2 (timeEntry) {
-      console.log('YAY 3')
+    timeUpdateTE (timeEntry) {
+      console.log('CALLED timeUpdateTE')
       this.timeEntries.push(timeEntry)
+      this.$emit('timeUpdate4SB', timeEntry)
+      console.log('EMITTED timeUpdate4SB')
       return true
     }
-  },
-  events: {
-    timeUpdate (timeEntry) {
-      console.log('YAY 1')
-      this.timeEntries.push(timeEntry)
-      return true
-    }
-  },
-  created: function () {
-    // console.log('YAY 2')
-    // this.$on('timeUpdate', this.timeUpdate2)
   }
 }
 </script>

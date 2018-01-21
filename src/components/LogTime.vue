@@ -59,7 +59,8 @@ export default {
       let timeEntry = this.timeEntry
       // We dispatch the timeEntry so it can be pushed
       // onto the timeEntries array in the parent component
-      this.$emit('timeUpdate', timeEntry) // this.$dispatch('timeUpdate', timeEntry)
+      this.$emit('timeUpdate4TE', timeEntry) // this.$dispatch('timeUpdate', timeEntry)
+      console.log('EMITTED timeUpdate4TE')
       this.timeEntry = {
         user: {
           firstName: 'Ryan',
